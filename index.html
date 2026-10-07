@@ -3,212 +3,466 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Морський профіль</title>
 
 <style>
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  margin: 0;
-  background: #eef4f8;
-  font-family: Arial, sans-serif;
-  color: #172f3d;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #eaf1f5;
+    color: #172f3d;
 }
 
-.container {
-  width: 95%;
-  max-width: 1100px;
-  margin: 25px auto;
-  background: #fff;
-  border: 3px solid #0b4f71;
-  box-shadow: 0 5px 20px rgba(0,0,0,.15);
+.page {
+    width: 96%;
+    max-width: 1150px;
+    margin: 25px auto;
+    background: #ffffff;
+    border: 4px double #0a4f73;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
 }
 
 .header {
-  background: #0b4f71;
-  color: white;
-  text-align: center;
-  padding: 22px;
+    background: #0a4f73;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
 }
 
 .header h1 {
-  margin: 0;
-  font-size: 27px;
+    margin: 0;
+    font-size: 30px;
+    letter-spacing: 2px;
 }
 
-.header p {
-  margin: 7px 0 0;
+.header h2 {
+    margin: 10px 0 0;
+    font-size: 18px;
+    font-weight: normal;
 }
 
-.photo {
-  text-align: center;
-  padding: 25px 15px 15px;
+.header-line {
+    width: 80%;
+    height: 2px;
+    background: white;
+    margin: 18px auto 0;
 }
 
-.photo img {
-  width: 230px;
-  max-width: 90%;
-  border: 4px solid #0b4f71;
-  padding: 4px;
+.photo-area {
+    text-align: center;
+    padding: 28px 15px;
 }
 
-.title {
-  background: #0b4f71;
-  color: white;
-  padding: 12px;
-  text-align: center;
-  font-size: 18px;
-  font-weight: bold;
+.photo-area img {
+    width: 250px;
+    max-width: 90%;
+    border: 5px solid #0a4f73;
+    padding: 5px;
+    background: white;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
+.section-title {
+    background: #0a4f73;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    font-size: 19px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 8px;
 }
 
-th,
-td {
-  border: 1px solid #b7c8d2;
-  padding: 11px;
+.info-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-th {
-  width: 35%;
-  background: #e7f0f5;
-  text-align: left;
-  color: #0b4f71;
+.info-table th,
+.info-table td {
+    border: 1px solid #b7c8d2;
+    padding: 13px 14px;
+    font-size: 15px;
+}
+
+.info-table th {
+    width: 35%;
+    background: #e8f1f5;
+    color: #0a4f73;
+    text-align: left;
+}
+
+.info-table td {
+    background: #ffffff;
+}
+
+.profile-text {
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.positions {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 20px;
+}
+
+.position {
+    border: 1px solid #b7c8d2;
+    background: #f5f9fb;
+    padding: 18px 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #0a4f73;
 }
 
 .documents {
-  padding: 12px 18px;
+    padding: 18px 20px;
 }
 
 .document {
-  border: 1px solid #c2d0d8;
-  padding: 12px;
-  margin: 8px 0;
-  background: #f7fafc;
+    display: flex;
+    align-items: center;
+    border: 1px solid #c4d1d9;
+    background: #f7fafc;
+    margin-bottom: 10px;
+    min-height: 52px;
+}
+
+.number {
+    width: 65px;
+    min-width: 65px;
+    background: #0a4f73;
+    color: white;
+    text-align: center;
+    padding: 17px 5px;
+    font-weight: bold;
+}
+
+.document-name {
+    padding: 12px 15px;
+    font-size: 15px;
+}
+
+.training-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.training-table th,
+.training-table td {
+    border: 1px solid #b7c8d2;
+    padding: 12px;
+}
+
+.training-table th {
+    background: #e8f1f5;
+    color: #0a4f73;
 }
 
 .footer {
-  background: #0b4f71;
-  color: white;
-  text-align: center;
-  padding: 14px;
-  margin-top: 20px;
+    margin-top: 25px;
+    background: #0a4f73;
+    color: white;
+    text-align: center;
+    padding: 20px;
 }
 
-@media (max-width: 600px) {
-  .container {
-    width: 98%;
-  }
+.footer-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
 
-  .header h1 {
-    font-size: 21px;
-  }
-
-  th,
-  td {
+.footer-text {
     font-size: 13px;
-    padding: 8px;
-  }
+}
+
+@media (max-width: 700px) {
+
+    .page {
+        width: 98%;
+        margin: 10px auto;
+    }
+
+    .header h1 {
+        font-size: 23px;
+    }
+
+    .header h2 {
+        font-size: 15px;
+    }
+
+    .positions {
+        grid-template-columns: 1fr;
+    }
+
+    .info-table th,
+    .info-table td {
+        font-size: 13px;
+        padding: 9px;
+    }
+
+    .document-name {
+        font-size: 13px;
+    }
+
+    .photo-area img {
+        width: 200px;
+    }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="page">
 
-  <div class="header">
-    <h1>МОРСЬКИЙ ПРОФІЛЬ</h1>
-    <p>МОРЯК</p>
-  </div>
-
-  <div class="photo">
-    <img src="IMG_4584.jpeg" alt="Фото">
-  </div>
-
-  <div class="title">
-    ОСОБИСТІ ДАНІ
-  </div>
-
-  <table>
-    <tr>
-      <th>Прізвище</th>
-      <td>MOTAMEDKIA</td>
-    </tr>
-    <tr>
-      <th>Ім'я</th>
-      <td>ALIREZA</td>
-    </tr>
-    <tr>
-      <th>Ім'я батька</th>
-      <td>MAJID</td>
-    </tr>
-    <tr>
-      <th>Дата народження</th>
-      <td>14.11.2003</td>
-    </tr>
-    <tr>
-      <th>Громадянство</th>
-      <td>Іран</td>
-    </tr>
-    <tr>
-      <th>Морська спеціальність</th>
-      <td>Deck Department</td>
-    </tr>
-    <tr>
-      <th>Посада на судні</th>
-      <td>Deck Officer</td>
-    </tr>
-    <tr>
-      <th>Рівень підготовки</th>
-      <td>Maritime Training</td>
-    </tr>
-  </table>
-
-  <div class="title">
-    ПОСАДИ НА СУДНІ
-  </div>
-
-  <div class="documents">
-    <div class="document">Chief Officer</div>
-    <div class="document">Second Officer</div>
-    <div class="document">Officer of the Watch (OOW)</div>
-  </div>
-
-  <div class="title">
-    СЕРТИФІКАТИ МОРЯКА
-  </div>
-
-  <div class="documents">
-    <div class="document">
-      <b>08.</b> Сертифікат з радіолокації
+    <div class="header">
+        <h1>МОРСЬКИЙ ПРОФІЛЬ</h1>
+        <h2>МОРЯК</h2>
+        <div class="header-line"></div>
     </div>
 
-    <div class="document">
-      <b>09.</b> Сертифікат GMDSS
+    <div class="photo-area">
+        <img src="IMG_4586.jpeg" alt="Фото моряка">
     </div>
 
-    <div class="document">
-      <b>10.</b> Сертифікат ISPS
+    <div class="section-title">
+        ОСОБИСТІ ДАНІ
     </div>
 
-    <div class="document">
-      <b>11.</b> Сертифікат IDH
+    <table class="info-table">
+
+        <tr>
+            <th>Прізвище</th>
+            <td>MOTAMEDKIA</td>
+        </tr>
+
+        <tr>
+            <th>Ім'я</th>
+            <td>ALIREZA</td>
+        </tr>
+
+        <tr>
+            <th>Ім'я батька</th>
+            <td>MAJID</td>
+        </tr>
+
+        <tr>
+            <th>Дата народження</th>
+            <td>14.11.2003</td>
+        </tr>
+
+        <tr>
+            <th>Громадянство</th>
+            <td>Iranian</td>
+        </tr>
+
+        <tr>
+            <th>Морська галузь</th>
+            <td>Мореплавство</td>
+        </tr>
+
+        <tr>
+            <th>Відділ</th>
+            <td>Deck Department</td>
+        </tr>
+
+        <tr>
+            <th>Спеціальність</th>
+            <td>Deck Officer</td>
+        </tr>
+
+        <tr>
+            <th>Тип підготовки</th>
+            <td>Maritime Training</td>
+        </tr>
+
+    </table>
+
+    <div class="section-title">
+        МОРСЬКА КВАЛІФІКАЦІЯ
     </div>
 
-    <div class="document">
-      <b>12.</b> Сертифікат про проходження тренажерної підготовки з радіолокації та ARPA
+    <div class="profile-text">
+        Профіль містить інформацію про морську підготовку,
+        професійну діяльність та навчання у сфері мореплавства.
+        Основний напрямок підготовки пов'язаний з роботою
+        палубної команди, навігацією, радіолокацією,
+        радіозв'язком та безпекою на борту судна.
     </div>
-  </div>
 
-  <div class="footer">
-    МОРЕПЛАВСТВО
-  </div>
+    <div class="section-title">
+        ПОСАДИ НА СУДНІ
+    </div>
+
+    <div class="positions">
+
+        <div class="position">
+            Chief Officer
+        </div>
+
+        <div class="position">
+            Second Officer
+        </div>
+
+        <div class="position">
+            Officer of the Watch
+        </div>
+
+    </div>
+
+    <div class="section-title">
+        МОРСЬКА ПІДГОТОВКА
+    </div>
+
+    <table class="training-table">
+
+        <tr>
+            <th>№</th>
+            <th>Напрямок підготовки</th>
+            <th>Статус</th>
+        </tr>
+
+        <tr>
+            <td>01</td>
+            <td>Радіолокаційна підготовка</td>
+            <td>Завершено</td>
+        </tr>
+
+        <tr>
+            <td>02</td>
+            <td>GMDSS</td>
+            <td>Завершено</td>
+        </tr>
+
+        <tr>
+            <td>03</td>
+            <td>ISPS</td>
+            <td>Завершено</td>
+        </tr>
+
+        <tr>
+            <td>04</td>
+            <td>IDH</td>
+            <td>Завершено</td>
+        </tr>
+
+        <tr>
+            <td>05</td>
+            <td>Radar &amp; ARPA Simulator</td>
+            <td>Завершено</td>
+        </tr>
+
+    </table>
+
+    <div class="section-title">
+        СЕРТИФІКАТИ МОРЯКА
+    </div>
+
+    <div class="documents">
+
+        <div class="document">
+            <div class="number">08</div>
+            <div class="document-name">
+                Сертифікат з радіолокації
+            </div>
+        </div>
+
+        <div class="document">
+            <div class="number">09</div>
+            <div class="document-name">
+                Сертифікат GMDSS
+            </div>
+        </div>
+
+        <div class="document">
+            <div class="number">10</div>
+            <div class="document-name">
+                Сертифікат ISPS
+            </div>
+        </div>
+
+        <div class="document">
+            <div class="number">11</div>
+            <div class="document-name">
+                Сертифікат IDH
+            </div>
+        </div>
+
+        <div class="document">
+            <div class="number">12</div>
+            <div class="document-name">
+                Сертифікат про проходження тренажерної
+                підготовки з радіолокації та ARPA
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-title">
+        ПРОФЕСІЙНІ НАВИЧКИ
+    </div>
+
+    <table class="info-table">
+
+        <tr>
+            <th>Навігація</th>
+            <td>Навігаційна підготовка та робота з навігаційними системами</td>
+        </tr>
+
+        <tr>
+            <th>Радіолокація</th>
+            <td>Radar / ARPA</td>
+        </tr>
+
+        <tr>
+            <th>Радіозв'язок</th>
+            <td>GMDSS</td>
+        </tr>
+
+        <tr>
+            <th>Безпека судна</th>
+            <td>ISPS</td>
+        </tr>
+
+        <tr>
+            <th>Тренажерна підготовка</th>
+            <td>Radar and ARPA Simulator Training</td>
+        </tr>
+
+    </table>
+
+    <div class="section-title">
+        МОРЕПЛАВСТВО
+    </div>
+
+    <div class="profile-text">
+        Професійна морська підготовка, навігація,
+        безпека судноплавства та робота з сучасними
+        навігаційними і радіозв'язковими системами.
+    </div>
+
+    <div class="footer">
+
+        <div class="footer-title">
+            МОРСЬКИЙ ПРОФІЛЬ
+        </div>
+
+        <div class="footer-text">
+            Maritime Profile
+        </div>
+
+    </div>
 
 </div>
 
